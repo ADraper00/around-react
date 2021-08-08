@@ -6,32 +6,32 @@ import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
 
 function App() {
-  const [isEditAvatarPopupOpen, updateAvatarPopupState] = React.useState(false);
-  const [isEditProfilePopupOpen, updateEditProfilePopupState] = React.useState(false);
-  const [isAddPlacePopupOpen, updateAddPlacePopupState] = React.useState(false);
-  const [selectedCard, updateSelectedCard] = React.useState(null);
+  const [isEditAvatarPopupOpen, setIsAvatarPopupState] = React.useState(false);
+  const [isEditProfilePopupOpen, setIsEditProfilePopupState] = React.useState(false);
+  const [isAddPlacePopupOpen, setIsAddPlacePopupState] = React.useState(false);
+  const [selectedCard, setIsSelectedCard] = React.useState(null);
 
   function handleAvatarClick() {
-    updateAvatarPopupState(true);
+    setIsAvatarPopupState(true);
   }
 
   function handleEditProfileClick() {
-    updateEditProfilePopupState(true);
+    setIsEditProfilePopupState(true);
   }
 
   function handleAddPlaceClick() {
-    updateAddPlacePopupState(true);
+    setIsAddPlacePopupState(true);
   }
 
   function handleCardClick(cardData) {
-    updateSelectedCard(cardData);
+    setIsSelectedCard(cardData);
   }
 
   function closeAllPopups() {
-    updateAvatarPopupState(false);
-    updateEditProfilePopupState(false);
-    updateAddPlacePopupState(false);
-    updateSelectedCard(null);
+    setIsAvatarPopupState(false);
+    setIsEditProfilePopupState(false);
+    setIsAddPlacePopupState(false);
+    setIsSelectedCard(null);
   }
 
   return (
