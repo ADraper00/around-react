@@ -27,7 +27,9 @@ function App() {
             .then((data) => {
                 updateCards(data);
             })
-            .catch((err) => console.error(`Problem fetching cards cards: ${err}`));
+            .catch((err) => {
+                console.log(err);
+            });
     }, []);
 
     React.useEffect(() => {
@@ -36,7 +38,9 @@ function App() {
                 updateCurrentUser(res);
                 updateLoading(false);
             })
-            .catch((err) => console.error(`Problem fetching user information: ${err}`));
+            .catch((err) => {
+                console.log(err);
+            });
     }, []);
 
     function handleAvatarClick() {
@@ -78,7 +82,9 @@ function App() {
                 closeAllPopups();
                 updateSubmitPendingStatus(false);
             })
-            .catch((err) => console.error(`Problem updating profile: ${err}`));
+            .catch((err) => {
+                console.log(err);
+            });
     }
 
     function handleUpdateAvatar(userData) {
@@ -89,7 +95,9 @@ function App() {
                 closeAllPopups();
                 updateSubmitPendingStatus(false);
             })
-            .catch((err) => console.error(`Problem updating avatar: ${err}`));
+            .catch((err) => {
+                console.log(err);
+            });
     }
 
     function handleCardLike(card) {
@@ -98,7 +106,9 @@ function App() {
             .then((likedCard) => {
                 updateCards(cards.map((cardItem) => (cardItem._id === card._id ? likedCard : cardItem)));
             })
-            .catch((err) => console.error(`Problem updating 'like' status: ${err}`));
+            .catch((err) => {
+                console.log(err);
+            });
     }
 
     function handleDeletePlaceSubmit(card) {
@@ -109,7 +119,9 @@ function App() {
                 closeAllPopups();
                 updateSubmitPendingStatus(false);
             })
-            .catch((err) => console.error(`Problem deleting card: ${err}`));
+            .catch((err) => {
+                console.log(err);
+            });
     }
 
     function handleAddPlaceSubmit(card) {
@@ -120,7 +132,9 @@ function App() {
                 closeAllPopups();
                 updateSubmitPendingStatus(false);
             })
-            .catch((err) => console.error(`Problem adding new place: ${err}`));
+            .catch((err) => {
+                console.log(err);
+            });
     }
 
     function updateInputValidity(evt, inputValidityUpdater, errorMessageUpdater) {

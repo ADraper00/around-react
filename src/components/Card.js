@@ -28,7 +28,7 @@ export default function Card({ cardData, onCardClick, onCardLike, onCardDelete }
                     <p className="card__likes">{cardData.likes.length}</p>
                 </div>
             </div>
-            <button type="button" name="Delete image" onClick={handleDeleteClick} className={`card__delete ${isOwn ? "element__delete_visable" : "card__delete_hidden"}`} aria-label="Delete photo"></button>
+            <button type="button" name="Delete image" onClick={handleDeleteClick} className={`card__delete ${isOwn ? "card__delete_visable" : "card__delete_hidden"}`} aria-label="Delete photo"></button>
         </article>
     );
 }
