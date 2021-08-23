@@ -18,7 +18,7 @@ export default function Main(props) {
                             <h1 className= "profile__name" >{currentUser.name}</h1>
                             <button onClick={props.onEditProfileClick} type="button" name="Edit profile" className= "profile__edit-button"  aria-label="Edit profile"></button>
                         </div>
-                        <p className={`profile__title ${props.isLoading}`}>{currentUser.about}</p>
+                        <p className= "profile__title">{currentUser.about}</p>
                     </div>
                 </div>
                 <button onClick={props.onAddPlaceClick} type="button" name="Add image" className="profile__add-button" aria-label="Add image"></button>

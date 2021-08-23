@@ -83,8 +83,10 @@ function App() {
                 updateSubmitPendingStatus(false);
             })
             .catch((err) => {
-                console.log(err);
-            });
+                console.log(err)})
+                .finally(() => {
+                    updateSubmitPendingStatus(false);
+                });
     }
 
     function handleUpdateAvatar(userData) {
@@ -96,8 +98,10 @@ function App() {
                 updateSubmitPendingStatus(false);
             })
             .catch((err) => {
-                console.log(err);
-            });
+                console.log(err)})
+                .finally(() => {
+                    updateSubmitPendingStatus(false);
+                });
     }
 
     function handleCardLike(card) {
@@ -107,8 +111,8 @@ function App() {
                 updateCards(cards.map((cardItem) => (cardItem._id === card._id ? likedCard : cardItem)));
             })
             .catch((err) => {
-                console.log(err);
-            });
+                console.log(`${err}`);
+              });
     }
 
     function handleDeletePlaceSubmit(card) {
@@ -121,7 +125,10 @@ function App() {
             })
             .catch((err) => {
                 console.log(err);
-            });
+            })
+            .finally(() => {
+                updateSubmitPendingStatus(false);
+              });
     }
 
     function handleAddPlaceSubmit(card) {
@@ -134,7 +141,10 @@ function App() {
             })
             .catch((err) => {
                 console.log(err);
-            });
+            })
+            .finally(() => {
+                updateSubmitPendingStatus(false);
+              });
     }
 
     function updateInputValidity(evt, inputValidityUpdater, errorMessageUpdater) {
