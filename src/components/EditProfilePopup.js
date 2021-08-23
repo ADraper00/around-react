@@ -25,10 +25,15 @@ export default function EditProfilePopup({ isOpen, onClose, onUpdateUser, isSubm
     }
 
     React.useEffect(() => {
-        updateName(currentUser.name || "");
-        updateAbout(currentUser.about || "");
+        if (currentUser) {
+        updateName(currentUser.name);
+        updateAbout(currentUser.about);
         updateNameInputValidity(true);
         updateAboutInputValidity(true);
+    } else {   
+        updateNameErrorMessage(false);
+        updateAboutErrorMessage(false);
+        }
     }, [currentUser, isOpen]);
 
     return (
