@@ -26,16 +26,13 @@ export default function EditProfilePopup({ isOpen, onClose, onUpdateUser, isSubm
 
     React.useEffect(() => {
         if (currentUser) {
-        updateName(currentUser.name);
-        updateAbout(currentUser.about);
+        updateName(currentUser.name || '');
+        updateAbout(currentUser.about || '');
         updateNameInputValidity(true);
         updateAboutInputValidity(true);
-    } else {   
-        updateNameErrorMessage(false);
-        updateAboutErrorMessage(false);
-        }
-    }, [currentUser, isOpen]);
-
+      } 
+    },[currentUser, isOpen]);
+    
     return (
         <>
             <PopupWithForm onSubmit={handleSubmit} name="edit" title="Edit Profile" buttonLabel={isSubmitting ? "Saving..." : "Save"} isOpen={isOpen} onClose={onClose}>
