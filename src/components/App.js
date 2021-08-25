@@ -36,13 +36,14 @@ function App() {
         api.getUserInfo()
             .then((res) => {
                 updateCurrentUser(res);
-                updateLoading(false);
             })
             .catch((err) => {
-                console.log(err);
-            });
-    }, []);
-
+                console.log(err)})
+                .finally(()=>{
+                    updateLoading(false);  
+                });
+    }, []); 
+   
     function handleAvatarClick() {
         updateAvatarPopupState(true);
         window.addEventListener("keydown", handleCloseOnEscape);
@@ -80,7 +81,6 @@ function App() {
             .then((res) => {
                 updateCurrentUser(res);
                 closeAllPopups();
-                updateSubmitPendingStatus(false);
             })
             .catch((err) => {
                 console.log(err)})
@@ -95,8 +95,7 @@ function App() {
             .then((res) => {
                 updateCurrentUser(res);
                 closeAllPopups();
-                updateSubmitPendingStatus(false);
-            })
+                })
             .catch((err) => {
                 console.log(err)})
                 .finally(() => {
@@ -121,7 +120,6 @@ function App() {
             .then((response) => {
                 updateCards(cards.filter((stateCard) => stateCard !== card));
                 closeAllPopups();
-                updateSubmitPendingStatus(false);
             })
             .catch((err) => {
                 console.log(err);
@@ -137,7 +135,6 @@ function App() {
             .then((newCard) => {
                 updateCards([newCard, ...cards]);
                 closeAllPopups();
-                updateSubmitPendingStatus(false);
             })
             .catch((err) => {
                 console.log(err);
